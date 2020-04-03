@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/tetris-app/static/css/main.6eade72f.chunk.css",
+    "main.js": "/tetris-app/static/js/main.fed57e42.chunk.js",
+    "main.js.map": "/tetris-app/static/js/main.fed57e42.chunk.js.map",
+    "runtime-main.js": "/tetris-app/static/js/runtime-main.7e0d2f07.js",
+    "runtime-main.js.map": "/tetris-app/static/js/runtime-main.7e0d2f07.js.map",
+    "static/js/2.8e480ac2.chunk.js": "/tetris-app/static/js/2.8e480ac2.chunk.js",
+    "static/js/2.8e480ac2.chunk.js.map": "/tetris-app/static/js/2.8e480ac2.chunk.js.map",
+    "index.html": "/tetris-app/index.html",
+    "precache-manifest.14c1db325108de910e0345e55bca2f71.js": "/tetris-app/precache-manifest.14c1db325108de910e0345e55bca2f71.js",
+    "service-worker.js": "/tetris-app/service-worker.js",
+    "static/css/main.6eade72f.chunk.css.map": "/tetris-app/static/css/main.6eade72f.chunk.css.map",
+    "static/js/2.8e480ac2.chunk.js.LICENSE.txt": "/tetris-app/static/js/2.8e480ac2.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/tetris-app/static/media/Pixel-LCD-7.e2897552.woff",
+    "static/media/bg.png": "/tetris-app/static/media/bg.2810fe6b.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7e0d2f07.js",
+    "static/js/2.8e480ac2.chunk.js",
+    "static/css/main.6eade72f.chunk.css",
+    "static/js/main.fed57e42.chunk.js"
+  ]
+}
