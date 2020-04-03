@@ -42,7 +42,7 @@ const Tetris = ({ callback }) => {
   }
 
   const drop = () => {
-    updatePlayerPos({ x: 0, y: -1, collided: false });
+    updatePlayerPos({ x: 0, y: 1, collided: false });
   }
 
   const dropPlayer = () => {
@@ -64,7 +64,7 @@ const Tetris = ({ callback }) => {
                 </div>
               )
             }
-            <StartButton onClick={startGame} />
+            <StartButton callback={startGame} />
           </aside>
       </StyledTetris>
     </StyledTetrisWrapper>
