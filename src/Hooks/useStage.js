@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { createStage } from '../gameHelpers';
 import { usePlayer } from './usePlayer';
 
-export const useStage = (player, reserPlayer) => {
+export const useStage = (player, resetPlayer) => {
   const [stage, setStage] = useState(createStage())
 
   useEffect(() => {
@@ -23,14 +23,17 @@ export const useStage = (player, reserPlayer) => {
           }
         });
       });
-        
+
+      if (player.collided) {
+        resetPlayer()
+      }
 
       return newStage
     }
 
     setStage(prev => updateStage(prev))
 
-  }, [player])
+  }, [player, resetPlayer])
 
   return [stage, setStage];
 }

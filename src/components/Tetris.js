@@ -5,7 +5,7 @@ import StartButton from './StartButton';
 
 
 import {StyledTetrisWrapper, StyledTetris} from './styles/StyledTetris';
-import { createStage } from '../gameHelpers';
+import { createStage, checkCollision } from '../gameHelpers';
 import { usePlayer } from '../Hooks/usePlayer';
 import { useStage } from '../Hooks/useStage';
 
@@ -23,10 +23,13 @@ const Tetris = ({ callback }) => {
   const startGame = () => {
     setStage(createStage());
     resetPlayer();
+    setGameOver(false);
   }
 
   const movePlayer = (dir) => {
-    updatePlayerPos({ x: dir, y: 0 })
+    if (!checkCollision(player, stage, { x: dir, y: 0 })) {
+      updatePlayerPos({ x: dir, y: 0 })
+    }
   }
 
   const move = ({ keyCode }) => {
@@ -42,7 +45,16 @@ const Tetris = ({ callback }) => {
   }
 
   const drop = () => {
-    updatePlayerPos({ x: 0, y: 1, collided: false });
+    if (!checkCollision(player, stage, { x: 0, y: 1 })) {
+      updatePlayerPos({ x: 0, y: 1, collided: false });
+    } else {
+      if (player.pos.y < 1) {
+        console.log('Game Over!');
+        setGameOver(true);
+        setDropTime(null);
+      }
+      updatePlayerPos({ x: 0, y: 0, collided: true })
+    }
   }
 
   const dropPlayer = () => {
