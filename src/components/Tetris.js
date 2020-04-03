@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Stage from './Stage';
 import Display from './Display';
+import Info from './Info'
 import StartButton from './StartButton';
 
 
@@ -61,7 +62,6 @@ const Tetris = ({ callback }) => {
       updatePlayerPos({ x: 0, y: 1, collided: false });
     } else {
       if (player.pos.y < 1) {
-        console.log('Game Over!');
         setGameOver(true);
         setDropTime(null);
       }
@@ -73,14 +73,12 @@ const Tetris = ({ callback }) => {
     if (!gameOver) {
       if (keyCode === 40) {
         setDropTime(1000 / (level + 1) + 200)
-        console.log('on')
       }
     }
   }
 
   const dropPlayer = () => {
     setDropTime(null);
-    console.log('off')
     drop();
   }
 
@@ -95,11 +93,15 @@ const Tetris = ({ callback }) => {
         <Stage stage={stage} />
           <aside>
             {gameOver ? 
-              (<Display gameOver={gameOver} text="Game Over" />)
+              ( <div>
+                  <Display text={`Score: ${score}`} />
+                  <Display gameOver={gameOver} text="Game Over" />
+                </div>)
               : ( <div>
                   <Display text={`Score: ${score}`} />
                   <Display text={`Rows: ${rows}`} />
                   <Display text={`Level: ${level}`} />
+                  <Info />
                 </div>
               )
             }
